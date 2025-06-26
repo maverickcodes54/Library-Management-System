@@ -12,7 +12,7 @@ const MembersList = ({ members, onEdit, onDelete }) => {
     );
 
     return (
-        <DataTable value={members} paginator rows={5} className="p-datatable-gridlines">
+        <DataTable value={members} paginator rows={10} className="p-datatable-gridlines">
             <Column field="name" header="Name" />
             <Column field="email" header="Email" />
             <Column field="phone" header="Phone" />

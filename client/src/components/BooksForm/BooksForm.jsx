@@ -99,12 +99,7 @@ const BooksForm = ({ onAddBook, selectedBook, clearSelectedBook }) => {
 
           <div className="form-label">
             <label className="form-label">Status</label>
-            <select
-              name="status"
-              value={formData.status}
-              className="form-select"
-              onChange={handleChange}
-            >
+            <select name="status" value={formData.status} className="form-select" onChange={handleChange}>
               <option value="available">Available</option>
               <option value="not available">Not Available</option>
               <option value="coming soon">Coming Soon</option>
@@ -113,41 +108,20 @@ const BooksForm = ({ onAddBook, selectedBook, clearSelectedBook }) => {
 
           <div className="mb-3">
             <label className="form-label">Copies</label>
-            <input
-              name="copies"
-              type="number"
-              className="form-control"
-              value={formData.copies}
-              onChange={handleChange}
-            />
+            <input name="copies" type="number" className="form-control" value={formData.copies} onChange={handleChange}/>
           </div>
 
           <div className="mb-3 form-check">
             <label className="form-label-label">Active</label>
-            <input
-              name="active"
-              type="checkbox"
-              checked={formData.active}
-              onChange={handleChange}
-              className="form-check-input"
-            />
+            <input name="active" type="checkbox" checked={formData.active} onChange={handleChange} className="form-check-input"/>
           </div>
 
           <div className="mb-3">
             <label className="form-label">Book cover Image</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="form-control"
-            />
+            <input type="file" accept="image/*" onChange={handleImageChange} className="form-control"/>
             {formData.image && (
-              <img
-                src={formData.image}
-                alt="Preview"
-                style={{ maxWidth: "100px", marginTop: "10px" }}
-              />
-            )}
+              <img src={formData.image} alt="Preview" style={{ maxWidth: "100px", marginTop: "10px" }}/>
+              )}
           </div>
           <button type="submit" className="btn btn-dark">
             {formData.id != null ? "Update Book" : "Save Book"}

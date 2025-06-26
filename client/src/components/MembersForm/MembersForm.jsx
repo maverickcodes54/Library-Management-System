@@ -12,11 +12,20 @@ const MembersForm = ({ onAddMember, selectedMember, clearSelectedMember }) => {
         paymentStatus: 'Paid'
     });
 
+const [showForm, setShowForm] = useState(null);
+
     useEffect(() => {
         if (selectedMember) {
             setFormData(selectedMember);
         }
     }, [selectedMember]);
+
+    const toggleForm = () => {
+    setShowForm(!showForm);
+    if (!showForm && selectedMember) {
+      clearSelectedMember();
+    }
+  };
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -30,6 +39,11 @@ const MembersForm = ({ onAddMember, selectedMember, clearSelectedMember }) => {
     };
 
     return (
+    <div className="container mt-3 mb-3 p-4">
+         <button className="btn btn-primary mb-2" onClick={toggleForm}>
+        {showForm ? "Cancel" : "Add Member"}
+      </button>
+      {showForm && (
         <form onSubmit={handleSubmit} className="p-fluid mb-4">
             <div className="field">
                 <label>Name</label>
@@ -52,6 +66,8 @@ const MembersForm = ({ onAddMember, selectedMember, clearSelectedMember }) => {
             </div>
             <Button type="submit" label={formData.id ? "Update" : "Register"} className="mt-2" />
         </form>
+         )}
+    </div>
     );
 };
 
